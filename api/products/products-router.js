@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Products.insert(req.body, req.params)
+  Products.addProduct(req.body, req.params)
     .then((product) => {
       if (!req.body.prodName || !req.body.prodDesc) {
         res
