@@ -20,13 +20,13 @@ exports.up = function (knex) {
       tbl.integer('inventory');
       tbl.string('image');
       tbl
-        .integer('category_id')
+        .integer('category')
         .unsigned()
         .references('category_id')
         .inTable('categories')
         .onDelete('CASCADE');
       tbl
-        .integer('type_id')
+        .integer('type')
         .unsigned()
         .references('type_id')
         .inTable('types')
