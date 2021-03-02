@@ -1,15 +1,38 @@
 const db = require('../../database/dbConfig');
 
 module.exports = {
-  findProducts() {
+  find() {
     return db('products');
   },
 
-  addProduct(product) {
+  findById(id) {
+    return db('products').where('prod_id', id).first();
+  },
+
+  update(changes, id) {
+    const productsId = id;
+    return db('products')
+      .where('prod_id', id)
+      .update(changes)
+      .then(() => {
+        return db('products').where('prod_id', productsId).first();
+      });
+  },
+
+  remove(id) {
+    return db('products')
+      .where('prod_id', id)
+      .del()
+      .then(() => {
+        return db('products');
+      });
+  },
+
+  add(product) {
     return db('products')
       .insert(product)
       .then(([id]) => {
-        return db('products').where('product_id', id).first();
+        return db('products').where('prod_id', id).first();
       });
   },
 };
