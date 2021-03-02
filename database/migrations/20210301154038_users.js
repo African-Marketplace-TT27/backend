@@ -14,6 +14,7 @@ exports.up = function (knex) {
         .unsigned()
         .references('country_id')
         .inTable('countries')
+        .onUpdate('CASCADE')
         .onDelete('CASCADE');
     });
 };

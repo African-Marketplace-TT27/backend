@@ -2,12 +2,15 @@ const router = require('express').Router();
 const Products = require('./products-model');
 
 router.get('/', (req, res) => {
-  Products.find(req.query)
+  const { id } = req.params;
+  Products.find(id)
     .then((products) => {
       res.status(200).json(products || []);
     })
-    .catch(() => {
-      res.status(500).json({ message: 'Error retrieving products' });
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: `Error retrieving products ${err.message}` });
     });
 });
 
@@ -36,8 +39,8 @@ router.post('/', (req, res) => {
         res.status(201).json(product);
       }
     })
-    .catch(() => {
-      res.status(500).json({ message: 'Error adding product' });
+    .catch((err) => {
+      res.status(500).json({ message: `Error adding product'${err.message}` });
     });
 });
 router.put('/:id', (req, res) => {
