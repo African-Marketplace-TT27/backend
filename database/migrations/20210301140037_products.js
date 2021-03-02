@@ -20,19 +20,37 @@ exports.up = function (knex) {
       tbl.integer('inventory');
       tbl.string('image');
       tbl
-        .integer('category')
+        .integer('category_id')
         .unsigned()
         .references('category_id')
         .inTable('categories')
         .onDelete('CASCADE');
       tbl
-        .integer('type')
+        .integer('category_name')
+        .unsigned()
+        .references('category_id')
+        .inTable('categories')
+        .onDelete('CASCADE');
+      tbl
+        .integer('type_id')
+        .unsigned()
+        .references('type_id')
+        .inTable('types')
+        .onDelete('CASCADE');
+      tbl
+        .string('type_name')
         .unsigned()
         .references('type_id')
         .inTable('types')
         .onDelete('CASCADE');
       tbl
         .integer('unit_id')
+        .unsigned()
+        .references('unit_id')
+        .inTable('units')
+        .onDelete('CASCADE');
+      tbl
+        .string('unit_name')
         .unsigned()
         .references('unit_id')
         .inTable('units')
