@@ -11,7 +11,7 @@ module.exports = {
 
   update(changes, id) {
     const categoryId = id;
-    return db('category')
+    return db('categories')
       .where('category_id', id)
       .update(changes)
       .then(() => {

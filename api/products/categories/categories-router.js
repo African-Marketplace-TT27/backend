@@ -58,6 +58,7 @@ router.put('/:id', (req, res) => {
       res.status(500).json({ message: 'Failed to update category' });
     });
 });
+
 router.delete('/:id', (req, res) => {
   Categories.remove(req.params.id)
     .then((category) => {
