@@ -16,8 +16,8 @@ exports.up = function (knex) {
       tbl.increments('prod_id');
       tbl.string('prod_name').notNullable();
       tbl.string('prod_desc').notNullable();
-      tbl.decimal('price');
-      tbl.integer('inventory');
+      tbl.string('price');
+      tbl.string('inventory');
       tbl.string('image');
       tbl
         .integer('category_id')
