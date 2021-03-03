@@ -66,7 +66,7 @@ module.exports = {
 
   add(product) {
     return db('products')
-      .insert(product)
+      .insert(product, 'prod_id')
       .then(([id]) => {
         return db('products').where('prod_id', id).first();
       });
