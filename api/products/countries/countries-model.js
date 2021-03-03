@@ -30,7 +30,7 @@ module.exports = {
 
   add(country) {
     return db('countries')
-      .insert(country)
+      .insert(country, 'country_id')
       .then(([id]) => {
         return db('countries').where('country_id', id).first();
       });
