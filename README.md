@@ -116,3 +116,14 @@ Parameters:
 | ------------- | ---------- | -------- | --------------------------------- |
 | unit_name     | string     | yes      | The name of the unit              |
 
+Country
+BaseURL/countries (GET) - gets all countries
+BaseURL/countries/:id (GET) - gets individual country
+BaseURL/countries (POST) - post a country
+BaseURL/countries/:id (PUT) - updates a country
+BaseURL/countries/:id (DELETE) - delete a country
+Parameters:
+| Name          | Type       | Required | Notes                             |
+| ------------- | ---------- | -------- | --------------------------------- |
+| country_name  | string     | yes      | The name of the country           |
+
