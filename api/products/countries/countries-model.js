@@ -28,9 +28,9 @@ module.exports = {
       });
   },
 
-  add(product) {
+  add(country) {
     return db('countries')
-      .insert(product)
+      .insert(country)
       .then(([id]) => {
         return db('countries').where('country_id', id).first();
       });
