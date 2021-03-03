@@ -34,8 +34,8 @@ router.post('/', (req, res) => {
         res.status(201).json(country);
       }
     })
-    .catch(() => {
-      res.status(500).json({ message: 'Error adding country' });
+    .catch((err) => {
+      res.status(500).json({ message: `Error adding country, ${err.message}` });
     });
 });
 
