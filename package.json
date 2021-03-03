@@ -4,9 +4,17 @@
   "description": "## ☝️ **Pitch**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "migrateh": "heroku run knex migrate:latest -a african-marketplace-tt27",
+    "rollbackh": "heroku run knex migrate:rollback -a african-marketplace-tt27",
+    "databaseh": "heroku pg:psql -a african-marketplace-tt27",
+    "seedh": "heroku run knex seed:run -a african-marketplace-tt27",
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
+    "deploy": "git push heroku main"
   },
   "repository": {
     "type": "git",
@@ -22,11 +30,13 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.18",
     "knex-cleaner": "^1.3.1",
+    "pg": "^8.5.1",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
