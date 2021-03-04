@@ -17,6 +17,7 @@ module.exports = {
         'c.category_name',
         'p.type_id',
         't.type_name',
+        't.suggested_market_price',
         'p.unit_id',
         'u.unit_name'
       );
