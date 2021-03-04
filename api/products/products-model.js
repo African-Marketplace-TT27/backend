@@ -29,7 +29,7 @@ module.exports = {
       .leftJoin('units as u', 'p.unit_id', 'u.unit_id')
       .select(
         'p.prod_id',
-        'prod_name',
+        'p.prod_name',
         'p.prod_desc',
         'p.price',
         'p.inventory',
