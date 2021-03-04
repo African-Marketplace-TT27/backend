@@ -41,7 +41,7 @@ router.post('/login', (req, res) => {
             message: `welcome, ${user.name}`,
             name: user.name,
             email: user.email,
-            country: user.country_name,
+            country: user.country_id,
             token,
           });
         } else {
