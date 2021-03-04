@@ -7,7 +7,7 @@ exports.up = function (knex) {
     .createTable('types', (tbl) => {
       tbl.increments('type_id');
       tbl.string('type_name');
-      tbl.string('suggested_market_price');
+      // tbl.string('suggested_market_price');
     })
     .createTable('units', (tbl) => {
       tbl.increments('unit_id');
