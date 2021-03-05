@@ -56,34 +56,34 @@ router.post('/login', (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  const { id } = req.params;
-  User.find(id)
-    .then((users) => {
-      res.status(200).json(users || []);
-    })
-    .catch((err) => {
-      res
-        .status(500)
-        .json({ message: `Error retrieving users, ${err.message}` });
-    });
-});
+// router.get('/login', (req, res) => {
+//   const { id } = req.params;
+//   User.find(id)
+//     .then((users) => {
+//       res.status(200).json(users || []);
+//     })
+//     .catch((err) => {
+//       res
+//         .status(500)
+//         .json({ message: `Error retrieving users, ${err.message}` });
+//     });
+// });
 
-router.get('/:id', (req, res) => {
-  User.findById(req.params.id)
-    .then((user) => {
-      if (user) {
-        res.status(200).json(user);
-      } else {
-        res.status(404).json({ message: `Error user not found` });
-      }
-    })
-    .catch((err) => {
-      res
-        .status(500)
-        .json({ message: `Error retrieving user, ${err.message}` });
-    });
-});
+// router.get('/:id', (req, res) => {
+//   User.findById(req.params.id)
+//     .then((user) => {
+//       if (user) {
+//         res.status(200).json(user);
+//       } else {
+//         res.status(404).json({ message: `Error user not found` });
+//       }
+//     })
+//     .catch((err) => {
+//       res
+//         .status(500)
+//         .json({ message: `Error retrieving user, ${err.message}` });
+//     });
+// });
 
 function makeToken(user) {
   const payload = {
